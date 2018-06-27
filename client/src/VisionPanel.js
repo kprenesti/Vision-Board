@@ -12,9 +12,14 @@ class VisionPanel extends Component {
             ],
             active: this.props.active
         }
+        this.handleClick=this.handleClick.bind(this)
+    }
+    handleClick =()=>{
+        this.setState((prevState)=> ({active: !prevState.active}));
     }
     render(){
-        return(<div>
+        let goal = this.state.goalType;
+        return(<div className={`${goal} container`} onClick={this.handleClick}>
                 <h1>{this.state.goalType.charAt(0).toUpperCase() + this.state.goalType.slice(1)} Goals</h1>
                 {this.state.active && <VisionContent data={this.state.data} />}
             </div>);
