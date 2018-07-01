@@ -1,0 +1,19 @@
+// BreakPoint Mixins
+@mixin SVP {
+    @media (min-width: 530px){
+      @content;
+    }
+  }
+  
+  @mixin MVP{
+    @media (min-width: 880px){
+      @content;
+    }
+  }
+  
+  @mixin LVP{
+    @media (min-width: 1020px){
+      @content;
+    }
+  }
+

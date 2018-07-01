@@ -19,8 +19,8 @@ class VisionPanel extends Component {
     }
     render(){
         let goal = this.state.goalType;
-        return(<div className={`${goal} container`} onClick={this.handleClick}>
-                <h1>{this.state.goalType.charAt(0).toUpperCase() + this.state.goalType.slice(1)} Goals</h1>
+        return(<div className={`${goal} goal__container`} onClick={this.handleClick}>
+                <h1 className={'goal__title'}>{this.state.goalType.charAt(0).toUpperCase() + this.state.goalType.slice(1)} Goals</h1>
                 {this.state.active && <VisionContent data={this.state.data} />}
             </div>);
     }
