@@ -12,7 +12,7 @@
 
 	&--personal {
 		background-color: lightblue;
-		@include LVP {
+		@include MVP {
 			background: url('../../assets/PersonalCover.jpg') top center no-repeat;
 		}
 		& > h1 {
@@ -23,7 +23,7 @@
 
 	&--material {
 		background-color: lightgreen;
-		@include LVP {
+		@include MVP {
 			background: url('../../assets/materialCover.jpg') top center no-repeat;
 		}
 		& > h1 {
@@ -34,7 +34,7 @@
 
 	&--professional {
 		background-color: grey;
-		@include LVP {
+		@include MVP {
 			background: url('../../assets/ProfessionalCover.jpg') top center no-repeat;
 		}
 		& > h1 {
@@ -49,7 +49,7 @@
 
 	&--environmental {
 		background-color: turquoise;
-		@include LVP {
+		@include MVP {
 			background: url('../../assets/GlobalCover.jpg') top center no-repeat;
 		}
 		& > h1 {

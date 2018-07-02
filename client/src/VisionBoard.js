@@ -11,10 +11,12 @@ class VisionBoard extends Component {
 
     render(){
         return (
-            <div className={'vb vb__container'}>
+            <div className={'vb'}>
+                <div className={'vb__container'}>
                 {this.state.goalTypes.map((g) =>{
-                   return <VisionPanel goal={g} active={false}/>
-                })}                
+                    return <VisionPanel key={g} goal={g} active={false}/>
+                 })}  
+                </div>              
             </div>
         );
     }
