@@ -1,8 +1,39 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
 .vb__container {
   display: flex;
   height: 100vh;
   width: 100vw;
   flex-direction: row;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.goal__container {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+}
+.goal__title {
+  transform: rotate(90deg);
+  display: inline-block;
+}
+.goal--personal {
+  background-color: lightblue;
+}
+.goal--material {
+  background-color: lightgreen;
+}
+.goal--professional {
+  background-color: grey;
+}
+.goal--environmental {
+  background-color: turquoise;
 }
 
 /*# sourceMappingURL=index.css.map */

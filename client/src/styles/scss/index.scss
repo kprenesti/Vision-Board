@@ -1,3 +1,6 @@
-@import 'VisionBoard/_visionboard';
 @import 'GlobalStyles/_vars';
 @import 'GlobalStyles/_mixins';
+
+@import 'GlobalStyles/_universals';
+@import 'VisionBoard/_visionboard';
+@import 'VisionBoard/_goalpanel';

@@ -1,0 +1,28 @@
+.goal {
+	&__container {
+		display: flex;
+		flex-grow: 1;
+		justify-content: center;
+		align-items: center;
+	}
+	&__title {
+		transform: rotate(90deg);
+		display: inline-block;
+	}
+
+	&--personal {
+		background-color: lightblue;
+	}
+
+	&--material {
+		background-color: lightgreen;
+	}
+
+	&--professional {
+		background-color: grey;
+	}
+
+	&--environmental {
+		background-color: turquoise;
+	}
+}
