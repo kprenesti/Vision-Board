@@ -12,17 +12,49 @@
 
 	&--personal {
 		background-color: lightblue;
+		@include LVP {
+			background: url('../../assets/PersonalCover.jpg') top center no-repeat;
+		}
+		& > h1 {
+			color: white;
+			text-shadow: black 1px 1px 1px;
+		}
 	}
 
 	&--material {
 		background-color: lightgreen;
+		@include LVP {
+			background: url('../../assets/materialCover.jpg') top center no-repeat;
+		}
+		& > h1 {
+			color: white;
+			text-shadow: black 1px 1px 1px;
+		}
 	}
 
 	&--professional {
 		background-color: grey;
+		@include LVP {
+			background: url('../../assets/ProfessionalCover.jpg') top center no-repeat;
+		}
+		& > h1 {
+			display: inline-block;
+			padding: 20px;
+			// border: 2px solid white;
+			background-color: black;
+			color: white;
+			text-shadow: black 1px 1px 1px;
+		}
 	}
 
 	&--environmental {
 		background-color: turquoise;
+		@include LVP {
+			background: url('../../assets/GlobalCover.jpg') top center no-repeat;
+		}
+		& > h1 {
+			color: white;
+			text-shadow: black 1px 1px 1px;
+		}
 	}
 }

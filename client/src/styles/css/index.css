@@ -26,14 +26,53 @@ body {
 .goal--personal {
   background-color: lightblue;
 }
+@media (min-width: 1020px) {
+  .goal--personal {
+    background: url("../../assets/PersonalCover.jpg") top center no-repeat;
+  }
+}
+.goal--personal > h1 {
+  color: white;
+  text-shadow: black 1px 1px 1px;
+}
 .goal--material {
   background-color: lightgreen;
+}
+@media (min-width: 1020px) {
+  .goal--material {
+    background: url("../../assets/materialCover.jpg") top center no-repeat;
+  }
+}
+.goal--material > h1 {
+  color: white;
+  text-shadow: black 1px 1px 1px;
 }
 .goal--professional {
   background-color: grey;
 }
+@media (min-width: 1020px) {
+  .goal--professional {
+    background: url("../../assets/ProfessionalCover.jpg") top center no-repeat;
+  }
+}
+.goal--professional > h1 {
+  display: inline-block;
+  padding: 20px;
+  background-color: black;
+  color: white;
+  text-shadow: black 1px 1px 1px;
+}
 .goal--environmental {
   background-color: turquoise;
+}
+@media (min-width: 1020px) {
+  .goal--environmental {
+    background: url("../../assets/GlobalCover.jpg") top center no-repeat;
+  }
+}
+.goal--environmental > h1 {
+  color: white;
+  text-shadow: black 1px 1px 1px;
 }
 
 /*# sourceMappingURL=index.css.map */
