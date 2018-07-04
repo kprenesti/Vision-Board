@@ -3,11 +3,18 @@
 	&__container {
 		margin: 0 auto;
 		display: flex;
+		flex-direction: column;
 		height: 100vh;
 		width: 100%;
-		flex-direction: row;
 		justify-content: center;
 		margin: 0;
 		padding: 0;
+		flex-basis: 200px;
+		@include MVP {
+			flex-direction: row;
+		}
+		@include LVP {
+			flex-direction: row;
+		}
 	}
 }

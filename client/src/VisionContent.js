@@ -11,7 +11,7 @@ class VisionContent extends Component {
         return (<div>
                 {this.props.data.map((goal)=>{
                     return (
-                    <div className="personalGoal goal" key={goal}>
+                    <div className="personalGoal goal" key={goal.goal}>
                         <h2>{goal.goal}</h2>
                         <ul>
                             <li>Started: {goal.started ? 'true': 'false'}</li>

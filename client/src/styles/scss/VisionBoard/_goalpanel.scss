@@ -1,23 +1,38 @@
 .goal {
 	&__container {
 		display: flex;
-		flex-grow: 1;
 		justify-content: center;
 		align-items: center;
+		flex-grow: 1;
+		&.active {
+			flex-direction: column;
+			flex-grow: 5;
+			> .goal__title {
+			transform: rotate(0deg);
+			// align-self: flex-start;
+			text-align: center;
+		}
+	}
 	}
 	&__title {
 		transform: rotate(90deg);
 		display: inline-block;
+		color: white;
+		text-shadow: 1px 1px 1px black;
+		transition: all 1s ease-in-out;
+		@include SVP {
+			transform: rotate(0deg);
+		}
 	}
 
 	&--personal {
 		background-color: lightblue;
+		background: url('../../assets/swim.jpg') center center no-repeat;
 		@include MVP {
 			background: url('../../assets/PersonalCover.jpg') top center no-repeat;
 		}
-		& > h1 {
-			color: white;
-			text-shadow: black 1px 1px 1px;
+		@include LVP {
+			background: url('../../assets/PersonalCover.jpg') top center no-repeat;
 		}
 	}
 
@@ -26,18 +41,15 @@
 		@include MVP {
 			background: url('../../assets/materialCover.jpg') top center no-repeat;
 		}
-		& > h1 {
-			color: white;
-			text-shadow: black 1px 1px 1px;
+		@include LVP {
+			background: url('../../assets/materialCover.jpg') top center no-repeat;
 		}
 	}
 
 	&--professional {
 		background-color: grey;
-		@include MVP {
-			background: url('../../assets/ProfessionalCover.jpg') top center no-repeat;
-		}
-		& > h1 {
+		background: url('../../assets/ProfessionalCover.jpg') top center no-repeat;
+		& > .goal__title {
 			display: inline-block;
 			padding: 20px;
 			// border: 2px solid white;
@@ -52,9 +64,17 @@
 		@include MVP {
 			background: url('../../assets/GlobalCover.jpg') top center no-repeat;
 		}
-		& > h1 {
-			color: white;
-			text-shadow: black 1px 1px 1px;
+		@include LVP {
+			background: url('../../assets/GlobalCover.jpg') top center no-repeat;
+		}
+	}
+
+	&--accomplishments {
+		@include MVP {
+			background: url('../../assets/AccomplishmentsCover.jpg') top center no-repeat;
+		}
+		@include LVP {
+			background: url('../../assets/AccomplishmentsCover.jpg') top center no-repeat;
 		}
 	}
 }

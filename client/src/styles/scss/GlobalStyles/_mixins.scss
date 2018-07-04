@@ -1,12 +1,12 @@
 // BreakPoint Mixins
 @mixin SVP {
-    @media (min-width: 530px){
+    @media (max-width: 799px){
       @content;
     }
   }
   
   @mixin MVP{
-    @media (min-width: 880px){
+    @media (min-width: 800px) and (max-width: 1019px){
       @content;
     }
   }

@@ -5,7 +5,8 @@ class VisionBoard extends Component {
     constructor(props){
         super(props);
         this.state = {
-            goalTypes: ['personal', 'professional', 'material', 'environmental']
+            goalTypes: ['personal', 'professional', 'material', 'environmental',
+            'accomplishments']
         }
     }
 
@@ -16,7 +17,7 @@ class VisionBoard extends Component {
                 {this.state.goalTypes.map((g) =>{
                     return <VisionPanel key={g} goal={g} active={false}/>
                  })}  
-                </div>              
+                </div>
             </div>
         );
     }

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import VisionContent from './VisionContent';
 
+
 class VisionPanel extends Component {
     constructor(props){
         super(props);
@@ -18,11 +19,18 @@ class VisionPanel extends Component {
         this.setState((prevState)=> ({active: !prevState.active}));
     }
     render(){
+//        let active = this.state.active ? "active" : null;
         let goal = this.state.goalType;
-        return(<div className={`goal--${goal} goal__container`} onClick={this.handleClick}>
-                <h1 className={'goal__title'}>{this.state.goalType.charAt(0).toUpperCase() + this.state.goalType.slice(1)} Goals</h1>
+        let goalName = goal.charAt(0).toUpperCase() + goal.slice(1);
+        if(goalName !== 'Accomplishments'){
+            goalName += ' Goals';
+        }
+        return(
+            <div className={`goal--${goal} ${this.state.active ? "active":''} goal__container `} onClick={this.handleClick}>
+                <h1 className={'goal__title'}>{goalName}</h1>
                 {this.state.active && <VisionContent data={this.state.data} />}
-            </div>);
+            </div>
+        );
     }
 }
 

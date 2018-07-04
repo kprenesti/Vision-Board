@@ -10,57 +10,83 @@ body {
 .vb__container {
   margin: 0 auto;
   display: flex;
+  flex-direction: column;
   height: 100vh;
   width: 100%;
-  flex-direction: row;
   justify-content: center;
   margin: 0;
   padding: 0;
+  flex-basis: 200px;
+}
+@media (min-width: 800px) and (max-width: 1019px) {
+  .vb__container {
+    flex-direction: row;
+  }
+}
+@media (min-width: 1020px) {
+  .vb__container {
+    flex-direction: row;
+  }
 }
 
 .goal__container {
   display: flex;
-  flex-grow: 1;
   justify-content: center;
   align-items: center;
+  flex-grow: 1;
+}
+.goal__container.active {
+  flex-direction: column;
+  flex-grow: 5;
+}
+.goal__container.active > .goal__title {
+  transform: rotate(0deg);
+  text-align: center;
 }
 .goal__title {
   transform: rotate(90deg);
   display: inline-block;
+  color: white;
+  text-shadow: 1px 1px 1px black;
+  transition: all 1s ease-in-out;
+}
+@media (max-width: 799px) {
+  .goal__title {
+    transform: rotate(0deg);
+  }
 }
 .goal--personal {
   background-color: lightblue;
+  background: url("../../assets/swim.jpg") center center no-repeat;
 }
-@media (min-width: 880px) {
+@media (min-width: 800px) and (max-width: 1019px) {
   .goal--personal {
     background: url("../../assets/PersonalCover.jpg") top center no-repeat;
   }
 }
-.goal--personal > h1 {
-  color: white;
-  text-shadow: black 1px 1px 1px;
+@media (min-width: 1020px) {
+  .goal--personal {
+    background: url("../../assets/PersonalCover.jpg") top center no-repeat;
+  }
 }
 .goal--material {
   background-color: lightgreen;
 }
-@media (min-width: 880px) {
+@media (min-width: 800px) and (max-width: 1019px) {
   .goal--material {
     background: url("../../assets/materialCover.jpg") top center no-repeat;
   }
 }
-.goal--material > h1 {
-  color: white;
-  text-shadow: black 1px 1px 1px;
+@media (min-width: 1020px) {
+  .goal--material {
+    background: url("../../assets/materialCover.jpg") top center no-repeat;
+  }
 }
 .goal--professional {
   background-color: grey;
+  background: url("../../assets/ProfessionalCover.jpg") top center no-repeat;
 }
-@media (min-width: 880px) {
-  .goal--professional {
-    background: url("../../assets/ProfessionalCover.jpg") top center no-repeat;
-  }
-}
-.goal--professional > h1 {
+.goal--professional > .goal__title {
   display: inline-block;
   padding: 20px;
   background-color: black;
@@ -70,14 +96,25 @@ body {
 .goal--environmental {
   background-color: turquoise;
 }
-@media (min-width: 880px) {
+@media (min-width: 800px) and (max-width: 1019px) {
   .goal--environmental {
     background: url("../../assets/GlobalCover.jpg") top center no-repeat;
   }
 }
-.goal--environmental > h1 {
-  color: white;
-  text-shadow: black 1px 1px 1px;
+@media (min-width: 1020px) {
+  .goal--environmental {
+    background: url("../../assets/GlobalCover.jpg") top center no-repeat;
+  }
+}
+@media (min-width: 800px) and (max-width: 1019px) {
+  .goal--accomplishments {
+    background: url("../../assets/AccomplishmentsCover.jpg") top center no-repeat;
+  }
+}
+@media (min-width: 1020px) {
+  .goal--accomplishments {
+    background: url("../../assets/AccomplishmentsCover.jpg") top center no-repeat;
+  }
 }
 
 /*# sourceMappingURL=index.css.map */
