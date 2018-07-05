@@ -1,7 +1,12 @@
+@charset "UTF-8";
 body {
   margin: 0;
   padding: 0;
   background-color: black;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 .vb {
@@ -16,7 +21,7 @@ body {
   justify-content: center;
   margin: 0;
   padding: 0;
-  flex-basis: 200px;
+  flex-basis: 0;
 }
 @media (min-width: 800px) and (max-width: 1019px) {
   .vb__container {
@@ -37,18 +42,42 @@ body {
 }
 .goal__container.active {
   flex-direction: column;
+  position: relative;
   flex-grow: 5;
+  background-size: cover;
+}
+@media (max-width: 799px) {
+  .goal__container.active {
+    padding: 40px;
+  }
 }
 .goal__container.active > .goal__title {
-  transform: rotate(0deg);
   text-align: center;
 }
+@media (min-width: 1020px) {
+  .goal__container.active > .goal__title {
+    transform: rotate(0deg);
+  }
+}
+@media (min-width: 800px) and (max-width: 1019px) {
+  .goal__container.active > .goal__title {
+    transform: rotate(0deg);
+  }
+}
 .goal__title {
-  transform: rotate(90deg);
   display: inline-block;
   color: white;
-  text-shadow: 1px 1px 1px black;
-  transition: all 1s ease-in-out;
+  text-shadow: 2px 2px 4px black;
+}
+@media (min-width: 1020px) {
+  .goal__title {
+    transform: rotate(90deg);
+  }
+}
+@media (min-width: 800px) and (max-width: 1019px) {
+  .goal__title {
+    transform: rotate(90deg);
+  }
 }
 @media (max-width: 799px) {
   .goal__title {
@@ -72,6 +101,17 @@ body {
 .goal--material {
   background-color: lightgreen;
 }
+@media (max-width: 799px) {
+  .goal--material {
+    background: url("../../assets/money.jpeg") top center no-repeat;
+  }
+  .goal--material.active {
+    background-size: cover;
+  }
+  .goal--material > .goal__title {
+    text-shadow: 4px 4px 4ßpx #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  }
+}
 @media (min-width: 800px) and (max-width: 1019px) {
   .goal--material {
     background: url("../../assets/materialCover.jpg") top center no-repeat;
@@ -88,13 +128,16 @@ body {
 }
 .goal--professional > .goal__title {
   display: inline-block;
-  padding: 20px;
+  padding: 5px 10px;
   background-color: black;
-  color: white;
-  text-shadow: black 1px 1px 1px;
 }
 .goal--environmental {
   background-color: turquoise;
+}
+@media (max-width: 799px) {
+  .goal--environmental {
+    background: url("../../assets/GlobalCover--small.jpg") center center no-repeat;
+  }
 }
 @media (min-width: 800px) and (max-width: 1019px) {
   .goal--environmental {
@@ -104,6 +147,11 @@ body {
 @media (min-width: 1020px) {
   .goal--environmental {
     background: url("../../assets/GlobalCover.jpg") top center no-repeat;
+  }
+}
+@media (max-width: 799px) {
+  .goal--accomplishments {
+    background: url("../../assets/AccomplishmentsCover--small.jpg") top center no-repeat;
   }
 }
 @media (min-width: 800px) and (max-width: 1019px) {

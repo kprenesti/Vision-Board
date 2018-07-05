@@ -6,20 +6,36 @@
 		flex-grow: 1;
 		&.active {
 			flex-direction: column;
+			position: relative;
 			flex-grow: 5;
-			> .goal__title {
-			transform: rotate(0deg);
-			// align-self: flex-start;
-			text-align: center;
+			background-size: cover;
+			@include SVP {
+				padding: 40px; //added to ensure the title won't go outside the container
+			}
+			 & > .goal__title {
+
+				// align-self: flex-start;
+				text-align: center;
+				@include LVP {
+					transform: rotate(0deg);
+				}
+				@include MVP {
+					transform: rotate(0deg);
+				}
+			}
 		}
 	}
-	}
 	&__title {
-		transform: rotate(90deg);
 		display: inline-block;
 		color: white;
-		text-shadow: 1px 1px 1px black;
-		transition: all 1s ease-in-out;
+		text-shadow: 2px 2px 4px black;
+		// transition: all .15s ease-in-out;
+		@include LVP {
+			transform: rotate(90deg);
+		}
+		@include MVP {
+			transform: rotate(90deg);
+		}
 		@include SVP {
 			transform: rotate(0deg);
 		}
@@ -38,12 +54,26 @@
 
 	&--material {
 		background-color: lightgreen;
+		@include SVP {
+			background: url('../../assets/money.jpeg') top center no-repeat;
+			&.active {
+				background-size: cover;
+			}
+			& > .goal__title {
+				text-shadow:        4px 4px 4ßpx #000,
+				-1px -1px 0 #000,  
+				 1px -1px 0 #000,
+				 -1px 1px 0 #000,
+				  1px 1px 0 #000;
+			}
+		}
 		@include MVP {
 			background: url('../../assets/materialCover.jpg') top center no-repeat;
 		}
 		@include LVP {
 			background: url('../../assets/materialCover.jpg') top center no-repeat;
 		}
+
 	}
 
 	&--professional {
@@ -51,16 +81,19 @@
 		background: url('../../assets/ProfessionalCover.jpg') top center no-repeat;
 		& > .goal__title {
 			display: inline-block;
-			padding: 20px;
+			padding: 5px 10px;
 			// border: 2px solid white;
 			background-color: black;
-			color: white;
-			text-shadow: black 1px 1px 1px;
+			// color: white;
+			// text-shadow: black 1px 1px 1px;
 		}
 	}
 
 	&--environmental {
 		background-color: turquoise;
+		@include SVP {
+			background: url('../../assets/GlobalCover--small.jpg') center center no-repeat;
+		}
 		@include MVP {
 			background: url('../../assets/GlobalCover.jpg') top center no-repeat;
 		}
@@ -70,6 +103,9 @@
 	}
 
 	&--accomplishments {
+		@include SVP {
+			background: url('../../assets/AccomplishmentsCover--small.jpg') top center no-repeat;
+		}
 		@include MVP {
 			background: url('../../assets/AccomplishmentsCover.jpg') top center no-repeat;
 		}
