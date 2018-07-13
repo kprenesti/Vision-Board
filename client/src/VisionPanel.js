@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import VisionContent from './VisionContent';
+import GoalsPreview from './GoalsPreview';
 
 
 class VisionPanel extends Component {
@@ -16,6 +16,7 @@ class VisionPanel extends Component {
         this.handleClick=this.handleClick.bind(this)
     }
     handleClick =()=>{
+        document.querySelectorAll('.active').forEach((el)=>{el.classList.remove('active')});
         this.setState((prevState)=> ({active: !prevState.active}));
     }
     render(){
@@ -27,8 +28,8 @@ class VisionPanel extends Component {
         }
         return(
             <div className={`goal--${goal} ${this.state.active ? "active":''} goal__container `} onClick={this.handleClick}>
-                <h1 className={'goal__title'}>{goalName}</h1>
-                {this.state.active && <VisionContent data={this.state.data} />}
+                {!this.state.active && <h1 className={`goal__title--panel goal__title ${(goal === 'professional')? 'goal__title--professional': ''}`}>{goalName}</h1>}
+                {this.state.active && <GoalsPreview data={this.state.data} goal={goalName} goalType={this.state.goalType} />}
             </div>
         );
     }

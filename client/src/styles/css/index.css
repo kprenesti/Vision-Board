@@ -7,6 +7,7 @@ body {
 
 * {
   box-sizing: border-box;
+  font-family: sans-serif;
 }
 
 .vb {
@@ -39,6 +40,8 @@ body {
   justify-content: center;
   align-items: center;
   flex-grow: 1;
+  flex-basis: 0;
+  transition: flex-grow 0.5s ease-in-out;
 }
 .goal__container.active {
   flex-direction: column;
@@ -51,38 +54,38 @@ body {
     padding: 40px;
   }
 }
-.goal__container.active > .goal__title {
-  text-align: center;
-}
-@media (min-width: 1020px) {
-  .goal__container.active > .goal__title {
-    transform: rotate(0deg);
-  }
-}
-@media (min-width: 800px) and (max-width: 1019px) {
-  .goal__container.active > .goal__title {
-    transform: rotate(0deg);
-  }
-}
 .goal__title {
   display: inline-block;
   color: white;
   text-shadow: 2px 2px 4px black;
 }
-@media (min-width: 1020px) {
+@media (max-width: 799px) {
   .goal__title {
+    font-size: 1.5rem;
+  }
+}
+@media (min-width: 1020px) {
+  .goal__title--panel {
     transform: rotate(90deg);
   }
 }
 @media (min-width: 800px) and (max-width: 1019px) {
-  .goal__title {
+  .goal__title--panel {
     transform: rotate(90deg);
   }
 }
 @media (max-width: 799px) {
-  .goal__title {
+  .goal__title--panel {
     transform: rotate(0deg);
   }
+}
+.goal__title--preview {
+  align-self: flex-start;
+}
+.goal__title--professional {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: black;
 }
 .goal--personal {
   background-color: lightblue;
@@ -125,11 +128,6 @@ body {
 .goal--professional {
   background-color: grey;
   background: url("../../assets/ProfessionalCover.jpg") top center no-repeat;
-}
-.goal--professional > .goal__title {
-  display: inline-block;
-  padding: 5px 10px;
-  background-color: black;
 }
 .goal--environmental {
   background-color: turquoise;

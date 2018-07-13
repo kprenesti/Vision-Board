@@ -4,6 +4,8 @@
 		justify-content: center;
 		align-items: center;
 		flex-grow: 1;
+		flex-basis: 0;
+		transition: flex-grow .5s ease-in-out;
 		&.active {
 			flex-direction: column;
 			position: relative;
@@ -12,17 +14,6 @@
 			@include SVP {
 				padding: 40px; //added to ensure the title won't go outside the container
 			}
-			 & > .goal__title {
-
-				// align-self: flex-start;
-				text-align: center;
-				@include LVP {
-					transform: rotate(0deg);
-				}
-				@include MVP {
-					transform: rotate(0deg);
-				}
-			}
 		}
 	}
 	&__title {
@@ -30,14 +21,27 @@
 		color: white;
 		text-shadow: 2px 2px 4px black;
 		// transition: all .15s ease-in-out;
-		@include LVP {
-			transform: rotate(90deg);
-		}
-		@include MVP {
-			transform: rotate(90deg);
-		}
 		@include SVP {
-			transform: rotate(0deg);
+			font-size: 1.5rem;
+		}
+		&--panel{
+			@include LVP {
+				transform: rotate(90deg);
+			}
+			@include MVP {
+				transform: rotate(90deg);
+			}
+			@include SVP {
+				transform: rotate(0deg);
+			}
+		}
+		&--preview {
+			align-self: flex-start;
+		}
+		&--professional {
+			display: inline-block;
+			padding: 5px 10px;
+			background-color: black;
 		}
 	}
 
@@ -78,15 +82,7 @@
 
 	&--professional {
 		background-color: grey;
-		background: url('../../assets/ProfessionalCover.jpg') top center no-repeat;
-		& > .goal__title {
-			display: inline-block;
-			padding: 5px 10px;
-			// border: 2px solid white;
-			background-color: black;
-			// color: white;
-			// text-shadow: black 1px 1px 1px;
-		}
+		background: url('../../assets/ProfessionalCover.jpg') top center no-repeat;		
 	}
 
 	&--environmental {
