@@ -163,4 +163,20 @@ body {
   }
 }
 
+.goalsPreview {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  width: 80%;
+  height: 500px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.goal {
+  background-color: grey;
+  color: black;
+  height: 500px;
+  width: 500px;
+}
+
 /*# sourceMappingURL=index.css.map */

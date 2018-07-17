@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import GoalsPreview from './GoalsPreview';
 
-
 class VisionPanel extends Component {
     constructor(props){
         super(props);
@@ -13,12 +12,24 @@ class VisionPanel extends Component {
             ],
             active: this.props.active
         }
-        this.handleClick=this.handleClick.bind(this)
+        // this.handleClick=this.handleClick.bind(this)
     }
-    handleClick =()=>{
+    removeActiveClasses(){
         document.querySelectorAll('.active').forEach((el)=>{el.classList.remove('active')});
+    }
+
+    toggleActiveState(){
         this.setState((prevState)=> ({active: !prevState.active}));
     }
+
+    handleClick(e){
+        // this.removeActiveClasses();
+        e.stopPropagation();
+        this.toggleActiveState();
+        console.log(this, e.target);
+    }
+
+
     render(){
 //        let active = this.state.active ? "active" : null;
         let goal = this.state.goalType;
@@ -27,9 +38,26 @@ class VisionPanel extends Component {
             goalName += ' Goals';
         }
         return(
-            <div className={`goal--${goal} ${this.state.active ? "active":''} goal__container `} onClick={this.handleClick}>
-                {!this.state.active && <h1 className={`goal__title--panel goal__title ${(goal === 'professional')? 'goal__title--professional': ''}`}>{goalName}</h1>}
-                {this.state.active && <GoalsPreview data={this.state.data} goal={goalName} goalType={this.state.goalType} />}
+            <div className={`
+                    goal--${goal} 
+                    ${this.state.active ? "active":''} 
+                    goal__container `} 
+                onClick={(e)=>{this.handleClick(e)}}
+            >
+                <div className={'goal__container--inner'} >
+                    {!this.state.active && 
+                        <h1 className={`
+                        goal__title--panel 
+                        goal__title 
+                        ${(goal === 'professional')?'goal__title--professional': ''}`}>{goalName}
+                        </h1>}
+                    {this.state.active && 
+                        <GoalsPreview 
+                            data={this.state.data} 
+                            goal={goalName} 
+                            goalType={this.state.goalType} 
+                        />}
+                </div>
             </div>
         );
     }
