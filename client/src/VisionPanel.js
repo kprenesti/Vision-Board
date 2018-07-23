@@ -5,62 +5,77 @@ class VisionPanel extends Component {
     constructor(props){
         super(props);
         this.state = {
-            goalType: this.props.goal,
             data: [
-                {goal: 'Lose Weight', started: true, accomplished: false, resources: [{name: 'My Fitness Pal', url: 'https://www.myfitnesspal.com'}]}, 
-                {goal: 'Learn How to Scuba Dive', started: false, accomplished: false, resources: [{name: 'Sprayberry Dive Shop', url: 'http://www.diveshop1.com/marietta/'}] }
+                {
+                    name: 'Lose 10 by 10',
+                    dateStarted: 'July 23, 2018',
+                    dueDate: 'Oct 10, 2018',
+                    progress: 0,
+                    description: 'I have gained more weight than I am comfortable with.  I want to begin the weight loss process, and I want to feel better when I go to the beach in October.',
+                    resources: [
+                        {name: 'MyFitnessPal', url: 'https://www.myfitnesspal.com', description: 'Calorie counting app'},
+                        {name: 'Good Measure Meals', url: 'https://www.turner.com', description: 'Expensive Lean Cuisine provided by work.'}
+                    ]
+                },
+                {
+                    name: 'Go to 10 non-coding Meetups by New Years Eve',
+                    dateStarted: 'July 21, 2018',
+                    dueDate: 'Dec 31, 2018',
+                    progress: 1,
+                    description: 'I\'m not naturally a social butterfly, and I often let exhaustion and work prevent me from having a social life.',
+                    resources: [{
+                        name: 'Meetup.com', url: 'https://www.meetup.com', description: 'An app listing meetups for various interests.'
+                    }]
+                }
             ],
-            active: this.props.active
+            setParentState: this.props.changeParentState
         }
-        // this.handleClick=this.handleClick.bind(this)
+        this.removeActiveClasses = this.removeActiveClasses.bind(this);
+        this.handleClick = this.handleClick.bind(this);
     }
-    removeActiveClasses(){
+
+    componentDidMount(){
+        //Go fetch your data
+        console.log({props: this.props, state: this.state, this: this})
+    }
+    
+   removeActiveClasses = ()=>{
         document.querySelectorAll('.active').forEach((el)=>{el.classList.remove('active')});
     }
 
-    toggleActiveState(){
-        this.setState((prevState)=> ({active: !prevState.active}));
+    
+    handleClick = (e)=>{
+        this.removeActiveClasses();
+        this.state.setParentState(this.props.goal);
+        this.setState((prevState)=>({active: !prevState.active}));
     }
-
-    handleClick(e){
-        // this.removeActiveClasses();
-        e.stopPropagation();
-        this.toggleActiveState();
-        console.log(this, e.target);
-    }
-
 
     render(){
-//        let active = this.state.active ? "active" : null;
-        let goal = this.state.goalType;
-        let goalName = goal.charAt(0).toUpperCase() + goal.slice(1);
-        if(goalName !== 'Accomplishments'){
-            goalName += ' Goals';
+        let goalType = this.props.goal;
+        let goalTypeName = goalType.charAt(0).toUpperCase() + goalType.slice(1);
+        if(goalTypeName !== 'Accomplishments'){
+            goalTypeName += ' Goals';
         }
-        return(
-            <div className={`
-                    goal--${goal} 
-                    ${this.state.active ? "active":''} 
-                    goal__container `} 
-                onClick={(e)=>{this.handleClick(e)}}
-            >
-                <div className={'goal__container--inner'} >
-                    {!this.state.active && 
-                        <h1 className={`
-                        goal__title--panel 
-                        goal__title 
-                        ${(goal === 'professional')?'goal__title--professional': ''}`}>{goalName}
-                        </h1>}
-                    {this.state.active && 
+        return (
+        <div className={`goal--${goalType} ${this.props.active ? "active":''} 
+goal__container `} onClick={(e)=>{this.handleClick(e)}} >
+            <div className={'goal__container--inner'} >
+                {!this.props.active && 
+                    <h1 className={`goal__title--panel goal__title ${(goalType === 'professional')?'goal__title--professional': ''}`}>              {goalTypeName}
+                    </h1>}
+                    {
+                        this.props.active && 
                         <GoalsPreview 
                             data={this.state.data} 
-                            goal={goalName} 
-                            goalType={this.state.goalType} 
-                        />}
+                            goal={goalTypeName} 
+                            goalType={this.props.goal} 
+                        />
+                    }
                 </div>
             </div>
-        );
-    }
-}
+        ); //end return
+    }//end render
+} //end component
+
 
 export default VisionPanel;

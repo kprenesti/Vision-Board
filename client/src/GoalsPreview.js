@@ -2,7 +2,7 @@ import React from 'react';
 
 const GoalsPreview = (props)=>{
     const goal = props.goal;
-    const data = props.data;
+    const data = props.data[0];
     const goalType = props.goalType;
 
     
@@ -18,14 +18,13 @@ const GoalsPreview = (props)=>{
             <div className={`
                 goalsPreview__content`
             }>
-                <h2>Lose 10lbs by October: '10 by 10'!</h2>
+                <h2>{data.name}</h2>
                 <div className={"progressBar"}>
                     <div className={"progress"}>
-                    10% (Progress Bar will go here.)
-                    (Question to ponder: Do I need a complete button?  Maybe if there's no progress listed?)
+                        {data.progress}
                     </div>
                 </div>
-                <div className="completed">
+                {(data.progress !== 0 || data.progress !== 'undefined') && <div className="completed">
                     <input 
                     type="checkbox" 
                     id="completedBox" 
@@ -34,10 +33,10 @@ const GoalsPreview = (props)=>{
                     onClick={(e)=>{e.stopPropagation()}}
                     />
                     <label htmlFor="completed">Completed</label>
-                </div>
+                </div>}
             </div>
         </div>
     );
 };
 
-export default GoalsPreview
+export default GoalsPreview;
