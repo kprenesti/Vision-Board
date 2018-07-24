@@ -10,7 +10,7 @@ class VisionPanel extends Component {
                     name: 'Lose 10 by 10',
                     dateStarted: 'July 23, 2018',
                     dueDate: 'Oct 10, 2018',
-                    progress: 0,
+                    progress: 10,
                     description: 'I have gained more weight than I am comfortable with.  I want to begin the weight loss process, and I want to feel better when I go to the beach in October.',
                     resources: [
                         {name: 'MyFitnessPal', url: 'https://www.myfitnesspal.com', description: 'Calorie counting app'},

@@ -15,6 +15,9 @@
 				padding: 40px; //added to ensure the title won't go outside the container
 			}
 		}
+		&--inner {
+			width: 100%;
+		}
 	}
 	&__title {
 		display: inline-block;
