@@ -9,6 +9,6 @@
     "start:dev": "concurrently \"yarn start:server\" \"yarn start:client\""
   },
   "dependencies": {
-    "eslint": "^5.0.1"
+    "eslint": "^5.4.0"
   }
 }
