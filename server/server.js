@@ -8,12 +8,11 @@ const cookieParser = require('cookie-parser');
 const bcrypt = require('bcrypt');
 const passport = require('passport');
 const path = require('path');
-const mongoose = require('mongoose');
-const db = mongoose.connection;
-const User = require('./models/User');
+
+
 
 const PORT = process.env.PORT || 3210;
-const router = express.Router();
+const routes = require('./routes');
 
 app.use(helmet());
 
@@ -23,23 +22,11 @@ app.use(cookieParser());
 morgan('tiny');
 
 
-mongoose.connect(process.env.MONGOOSE_URL, {useNewUrlParser: true, createIndexes: true }, (e)=>{
-   !e ? console.log('The database is connected!'): ''
-}).catch((err)=>{console.log(err)});
 
-router.get('/', (req, res)=>{
-    res.json({message: "This muthafucka works!"})
-});
-app.use('/api', router);
 
-app.post('/api/newuser', (req, res)=>{
-    let newbie = new User(req.body);
-    newbie.save().then((res)=>{
-        console.log(res);
-    }, (err)=>{
-        console.error(err);
-    })
-})
+
+app.use('/', routes);
+
 
 
 
