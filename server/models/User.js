@@ -4,22 +4,21 @@ const Schema = mongoose.Schema;
 const UserSchema = new Schema({
     name: {
         type: String,
-        required: true
+        required: [true, "A name must be provided."]
     },
     username: {
         type: String,
-        required: true,
-        unique: true
+        required: [true, "You must include a username."],
+        unique: [true, "The username is already in use.  Please use a different username."]
     },
     password: {
         type: String,
-        required: true
+        required: [true, "You must include a password."]
     },
     dateCreated: Date,
     dateUpdated: {
         type: Date,
-        default: Date.now
-    },
+        required: [true, "Please include the dateUpdated."]    },
     goals: [{type: Schema.Types.ObjectId, ref: 'Goal'}]
 });
 
