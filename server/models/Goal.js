@@ -20,7 +20,8 @@ const GoalSchema = new Schema({
         type: Schema.Types.ObjectId, 
         ref: 'Task'
         }],
-    coverPhoto: String
+    coverPhoto: String,
+    user: {type: Schema.Types.ObjectId, ref: "user"}
 });
 
 const Goal = mongoose.model('goal', GoalSchema);
