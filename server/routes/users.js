@@ -61,7 +61,6 @@ router.put('/:username', (req, res, next)=>{
       res.status(500).json(err)
     }  
   }).then((updatedUser)=>{res.status(200).json(updatedUser)});
-  })
-});
+  });
 
 module.exports = router;
