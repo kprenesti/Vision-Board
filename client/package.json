@@ -16,5 +16,5 @@
     "test": "jest",
     "eject": "react-scripts eject"
   },
-  "proxy": "//localhost:3001"
+  "proxy": "http://localhost:3001"
 }
