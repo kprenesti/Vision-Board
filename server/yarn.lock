@@ -70,7 +70,7 @@ bluebird@3.5.1:
   resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-3.5.1.tgz#d9551f9de98f1fcda1e683d17ee91a0602ee2eb9"
   integrity sha512-MKiLiV+I1AA596t9w1sQJ8jkiSr5+ZKi0WKrYGUn6d1Fx+Ij4tIj+m2WMQSGczs5jZVxV339chE8iwk6F64wjA==
 
-body-parser@1.18.3:
+body-parser@1.18.3, body-parser@^1.18.3:
   version "1.18.3"
   resolved "https://registry.yarnpkg.com/body-parser/-/body-parser-1.18.3.tgz#5b292198ffdd553b3a0f20ded0592b956955c8b4"
   integrity sha1-WykhmP/dVTs6DyDe0FkrlWlVyLQ=
@@ -224,6 +224,11 @@ destroy@~1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/destroy/-/destroy-1.0.4.tgz#978857442c44749e4206613e37946205826abd80"
   integrity sha1-l4hXRCxEdJ5CBmE+N5RiBYJqvYA=
+
+dotenv@^6.1.0:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-6.1.0.tgz#9853b6ca98292acb7dec67a95018fa40bccff42c"
+  integrity sha512-/veDn2ztgRlB7gKmE3i9f6CmDIyXAy6d5nBq+whO9SLX+Zs1sXEgFLPi+aSuWqUuusMfbi84fT8j34fs1HaYUw==
 
 ee-first@1.1.1:
   version "1.1.1"

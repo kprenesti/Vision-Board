@@ -51,7 +51,7 @@ const UserSchema = new Schema({
 					url: String,
 					description: String
 				}
-			]
+			],
 			coverPhoto: String
 		}
 	]
