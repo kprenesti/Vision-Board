@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const bcrypt = require('bcryptjs');
 
 const UserSchema = new Schema({
 	first_name: {
@@ -9,7 +10,6 @@ const UserSchema = new Schema({
 	last_name: {
 		type: String
 	},
-
 	username: {
 		type: String,
 		required: true,
@@ -24,6 +24,7 @@ const UserSchema = new Schema({
 		type: Date,
 		default: Date.now
 	},
+	isDeleted: {type: Boolean, default: false},
 	goals: [
 		{
 			name: {
@@ -56,6 +57,16 @@ const UserSchema = new Schema({
 		}
 	]
 });
+UserSchema.methods.verifyPassword = (password)=>{
+	return bcrypt.compareSync(password, this.password);
+}
+UserSchema.methods.hashPassword = (password) => {
+	let salt = bcrypt.genSaltSync(10);
+	let hash = bcrypt.hashSync(password, salt);
+	return hash;
+}
+
 
 const User = mongoose.model('user', UserSchema);
+
 module.exports = User;

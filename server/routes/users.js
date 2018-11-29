@@ -8,11 +8,14 @@ const User = require('../models/User');
 //Create a new User
 router.post('/', (req, res, next) => {
       let body = req.body;
+      body.password = User.hashPassword(body.password);
       let date = Date.now();
       const user = new User(Object.assign({}, body, {
         dateCreated: date,
-        dateUpdated: date
+        dateUpdated: date,
       }));
+
+      //Check for existing user with same username.  Throw error if a user exists.
       User.find({username: body.username})
       .then((theUser) => {
         if (theUser[0].username === body.username) {
@@ -62,5 +65,11 @@ router.put('/:username', (req, res, next)=>{
     }  
   }).then((updatedUser)=>{res.status(200).json(updatedUser)});
   });
+
+//Delete a user
+router.delete('/:username', (req, res, next)=>{
+  User.findOneAndDelete({username:req.params.username}).then(()=>{
+    res.status(200).json({'msg': `User ${req.params.username} has been deleted successfully.`})
+  }).catch(next)});
 
 module.exports = router;
