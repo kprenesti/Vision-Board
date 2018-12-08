@@ -8,7 +8,7 @@ const User = require('../models/User');
 //Create a new User
 router.post('/', (req, res, next) => {
       let body = req.body;
-      body.password = User.hashPassword(body.password);
+      // body.password = User;
       let date = Date.now();
       const user = new User(Object.assign({}, body, {
         dateCreated: date,
@@ -18,7 +18,7 @@ router.post('/', (req, res, next) => {
       //Check for existing user with same username.  Throw error if a user exists.
       User.find({username: body.username})
       .then((theUser) => {
-        if (theUser[0].username === body.username) {
+        if (theUser.username === body.username) {
           // res.status(400).json({"error": "The username is already in use.  Please try again."});
           throw new Error('The username is already in use.');
         } //end if
