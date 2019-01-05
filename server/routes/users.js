@@ -9,11 +9,11 @@ const User = require('../models/User');
 router.post('/', (req, res, next) => {
       let body = req.body;
       body.password = User.hashPassword(body.password);
-      let date = Date.now();
-      const user = new User(Object.assign({}, body, {
+      const date = Date.now();
+      const user = new User(...body, {
         dateCreated: date,
         dateUpdated: date,
-      }));
+      });
 
       //Check for existing user with same username.  Throw error if a user exists.
       User.find({username: body.username})
