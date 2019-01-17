@@ -3,7 +3,6 @@ const Schema = mongoose.Schema;
 const bcrypt = require('bcryptjs');
 
 const UserSchema = new Schema({
-<<<<<<< HEAD
 	first_name: {
 		type: String,
 		required: true
@@ -57,27 +56,6 @@ const UserSchema = new Schema({
 			coverPhoto: String
 		}
 	]
-=======
-    name: {
-        type: String,
-        required: true
-    },
-    username: {
-        type: String,
-        required: true,
-        unique: true
-    },
-    password: {
-        type: String,
-        required: true
-    },
-    dateCreated: Date,
-    dateUpdated: {
-        type: Date,
-        default: Date.now
-    },
-    goals: [{type: Schema.Types.ObjectId, ref: 'Goal'}]
->>>>>>> master
 });
 
 UserSchema.pre('save', function(next){
