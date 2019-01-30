@@ -4,18 +4,19 @@ const User = require('../models/User');
 
 /* GET users listing. */
 
-
-//Create a new User
+// @route   POST /api/users
+// @desc    Create a new User
+// @access  public
 router.post('/', (req, res, next) => {
       let body = req.body;
-      // body.password = User;
-      let date = Date.now();
-      const user = new User(Object.assign({}, body, {
+      body.password = User.hashPassword(body.password);
+      const date = Date.now();
+      const user = new User(...body, {
         dateCreated: date,
         dateUpdated: date,
-      }));
+      });
 
-      //Check for existing user with same username.  Throw error if a user exists.
+      // Check for existing user with same username.  Throw error if a user exists.
       User.find({username: body.username})
       .then((theUser) => {
         if (theUser.username === body.username) {
@@ -35,7 +36,9 @@ router.post('/', (req, res, next) => {
       }); //end router.post
 
 
-//Get a list of all users
+// @route   GET /api/users
+// @desc    Get a list of all users
+// @access  Public
 router.get('/', (req, res, next)=>{
   User.find().then((users)=>{
     if(users){
@@ -46,7 +49,10 @@ router.get('/', (req, res, next)=>{
   })
 })
 
-//Retrieve a specific user by Username, which must be unique.
+
+// @route   GET /api/users/:username
+// @desc    Retrieve a specific user by Username, which must be unique.
+// @access  Public
 router.get('/:username', (req, res, next) => {
   User.find({username: req.params.username}).then((user)=>{
     if(user){
@@ -56,7 +62,11 @@ router.get('/:username', (req, res, next) => {
 });
 
 
-//Modify an existing User
+// @route   PUT /api/users
+// @desc    Modify an existing User
+// @access  Private
+
+// TODO: Check that user is logged in and accessing their own user info.
 router.put('/:username', (req, res, next)=>{
   let updatedInfo = {...req.body, dateUpdated: Date.now()}
   User.findOneAndUpdate({username: req.params.username}, updatedInfo, (err)=> {
@@ -66,7 +76,12 @@ router.put('/:username', (req, res, next)=>{
   }).then((updatedUser)=>{res.status(200).json(updatedUser)});
   });
 
-//Delete a user
+
+// @route   DELETE /api/users/:username
+// @desc    Delete a user
+// @access  Private
+
+// TODO: Check that user is logged in and deleting their own account.
 router.delete('/:username', (req, res, next)=>{
   User.findOneAndDelete({username:req.params.username}).then(()=>{
     res.status(200).json({'msg': `User ${req.params.username} has been deleted successfully.`})
